@@ -1,0 +1,12 @@
+date-time-orp-ph-ec-tds-sal-sg-do-suhu
+CREATE TABLE data (date string,time string,orp string,ph string,ec string,tds string,sal string,sg string,do string,temp string) row format delimited fields terminated by ',' stored as textfile;
+
+id,time,orp,ec,ph,tds,sal,sg,do,temp,lat,long,img,sensor_id,type,place
+
+CREATE DATABASE IF NOT EXISTS atlas;
+USE atlas;
+CREATE TABLE data (id string,time string,orp string,ec string,ph string,tds string,sal string,sg string,do string,temp string,lat string,long string,img string,sensor_id string,type string,place string) row format delimited fields terminated by ',' stored as textfile;
+LOAD DATA INPATH '/user/hive/warehouse/csv/rov1.csv' OVERWRITE INTO TABLE datasensor;
+
+CREATE TABLE ysi (Date string,Time string,Temp string,SpCond string,TDS string,Sal string,DOsat string,DO string,DOchrg string,pH string,pHmV string) row format delimited fields terminated by ',' stored as textfile;
+                                                   
